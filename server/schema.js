@@ -11,6 +11,20 @@ type Post {
     title: String
     content : String
 }
+
+input UserInput {
+   id: ID
+   username: String!
+   age: Int!
+   posts: [PostInput]
+}
+
+type PostInput {
+    id: ID
+    title: String!
+    content : String!
+}
+
 `);
 
 module.exports = schema;
