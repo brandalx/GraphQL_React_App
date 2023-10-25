@@ -90,3 +90,66 @@ const users = [
 ];
 
 module.exports = users;
+
+//query examples
+
+/*
+
+# query {
+    #   getAllUsers{
+    #     username
+    #   }
+    # }
+    
+    
+    # query {
+    #   getAllUsers{
+    #     username, posts {
+    #       id, content, title
+    #     }
+    #   }
+    # }
+    
+    
+    # query {
+    #   getUser (id:2){
+    #     id, username
+    #   }
+    # }
+    
+    # fragment userWithoutAge on User {
+    #   id, username, posts {
+    #     title, content
+    #   }
+    # }
+    
+    # query{
+    #   getAllUsers {
+    #     ...userWithoutAge
+    #   }
+    # }
+    
+    
+    # mutation{
+    #   createUser(input:{
+    #     username : "Test"
+    #     age: 22
+    #   })
+    #   {
+    #     id, username
+    #   }
+    # }
+    
+    # mutation{
+    #   createUser(input:{
+    #     username : "Newest user"
+    #     age: 22
+    #     posts: [{id: 1, title:"Some new title", content:"This is some content"}]
+    #   })
+    #   {
+    #     id, username
+    #   }
+    # }
+    
+    
+*/
