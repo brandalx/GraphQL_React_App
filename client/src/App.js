@@ -5,10 +5,10 @@ import { GET_ALL_USERS } from "./query/user";
 import { CREATE_USER } from "./mutations/user";
 
 function App() {
-  const { data, loading, error } = useQuery(GET_ALL_USERS);
+  const { data, loading, error, refetch } = useQuery(GET_ALL_USERS);
   const [users, setUsers] = useState([]);
-  const [username, setUsername] = useState("DDD");
-  const [age, setAge] = useState(23);
+  const [username, setUsername] = useState("New user");
+  const [age, setAge] = useState(10);
   const [newUser] = useMutation(CREATE_USER);
 
   useEffect(() => {
@@ -17,6 +17,11 @@ function App() {
       setUsers(data?.getAllUsers);
     }
   }, [data]);
+
+  const getAll = (e) => {
+    e.preventDefault();
+    refetch();
+  };
 
   if (loading) {
     return <h1>Loading...</h1>;
@@ -59,7 +64,7 @@ function App() {
               Create
             </button>
 
-            <button>Recive</button>
+            <button onClick={(e) => getAll(e)}>Recive</button>
           </div>
         </form>
         <div>
