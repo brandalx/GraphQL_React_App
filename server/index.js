@@ -18,8 +18,8 @@ const root = {
     return users;
   },
 
-  getUsers: ({ id }) => {
-    return users.find((users) => users.id == id);
+  getUser: ({ id }) => {
+    return users.find((user) => user.id == id);
   },
   createUser: ({ input }) => {
     const user = createUser(input);
