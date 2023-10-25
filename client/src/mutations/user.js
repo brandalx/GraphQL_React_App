@@ -7,4 +7,4 @@ export const CREATE_USER = gql`
      id, username, age
     }
   }
-`;
+`
