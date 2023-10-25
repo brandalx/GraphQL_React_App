@@ -9,6 +9,9 @@ function App() {
 
   useEffect(() => {
     console.log(data);
+    if (!loading) {
+      setUsers(data?.getAllUsers);
+    }
   }, [data]);
 
   return (
@@ -23,8 +26,8 @@ function App() {
           </div>
         </form>
         <div>
-          {users.map((user) => (
-            <div className="user">
+          {users?.map((user) => (
+            <div className="user" key={user.id}>
               {user.id}. {user.username} {user.age}{" "}
             </div>
           ))}
